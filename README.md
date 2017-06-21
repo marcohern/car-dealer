@@ -6,7 +6,7 @@ CarDealer is a Tech Demo of an implementation of Angular (formally known as Angu
 
 ### Installation Summary
 
-1. Install required tools (`npm`)
+1. Install required tools (`npm, @angular/cli`)
 2. Clone the Repository
 3. Download Dependencies (`npm install`)
 4. Run Dev Server (`ng serve`)
@@ -15,11 +15,15 @@ CarDealer is a Tech Demo of an implementation of Angular (formally known as Angu
 
 Car Dealer requires you to have Node Paclage Manager (`npm`) installed. You can head to `https://nodejs.org` to download and install Node.js along with `npm`, or you may download npm independently from `https://www.npmjs.com/`.
 
+You may also need Angular CLI. Install it through npm if you don't have it allready.
+
+`npm install -g @angular/cli`
+
 ### 2. Clone the Repostory
 
 To install CarDealer, first clone the repository with the following command.
 
-`git clone https://github.com/marcohern/car-dealer.git`
+`git clone https://github.com/marcohern/car-dealer.git ./my/local/car-dealer/path`
 
 You may use GitHub Desktop or any other git client that you prefer.
 
@@ -33,7 +37,7 @@ That should download all dependencies for the source code.
 
 ### 3. Run Dev server
 
-Run `ng serve` to run the dev server. Navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
+Run `ng serve` to run the dev server. To run the app, just navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
 ## Running tests
 
