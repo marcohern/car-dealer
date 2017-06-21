@@ -6,6 +6,12 @@
         <h4 class="modal-title" *ngIf="car">{{car.year}} {{car.brand}} {{car.model}}</h4>
       </div>
       <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-3"><b>Brand</b>: <span>{{car.brand}}</span></div>
+          <div class="col-sm-3"><b>Model</b>: <span>{{car.model}}</span></div>
+          <div class="col-sm-3"><b>Year</b>: <span>{{car.year}}</span></div>
+          <div class="col-sm-3"><b>Price</b>: <span>$ {{car.price | number:'1.2-2'}}</span></div>
+        </div>
         <img class="img-responsive" *ngIf="car" src="assets/cars/{{car.slug}}.c.jpg" alt="{{car.year}} {{car.brand}} {{car.model}}" />
       </div>
       <div class="modal-footer">

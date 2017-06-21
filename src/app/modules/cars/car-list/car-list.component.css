@@ -2,7 +2,13 @@
 .car-summary {
     padding:8px;
 }
-
+.car-summary > h3 {
+    padding:4px;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 12px;
+    height: 18px;
+}
 .car-summary > div {
     position: relative;
     display:inline-block;

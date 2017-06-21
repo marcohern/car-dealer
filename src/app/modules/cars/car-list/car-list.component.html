@@ -14,6 +14,7 @@
   Solo puedes comparar desde {{config.compare.min}} hasta {{config.compare.max}} vehiculos.
 </div>
 <div *ngFor="let car of cars; let i = index" class="col-sm-3 car-summary">
+  <h3>{{car.year}} {{car.brand}} {{car.model}}</h3>
   <div class="thumbnail">
     <img src="/assets/cars/{{car.slug}}.th.jpg" alt="{{car.year}} {{car.brand}} {{car.model}}" class="img-responsive img-thumbnail">
     <div class="curtains" [ngClass]="(car.compare) ? 'active':''"></div>

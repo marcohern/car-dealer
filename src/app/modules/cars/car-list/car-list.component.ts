@@ -27,9 +27,25 @@ export class CarListComponent implements OnInit {
     private router:Router
   ) { }
 
+  sortCar(car1:Car, car2:Car):number {
+    
+    if      (car1.model > car2.model) return  1;
+    else if (car1.model < car2.model) return -1;
+    else {
+      if      (car1.brand > car2.brand) return  1;
+      else if (car1.brand < car2.brand) return -1;
+      else {
+        if      (car1.year > car2.year) return  1;
+        else if (car1.year < car2.year) return -1;
+        else return 0;
+      }
+    }
+  }
+
   ngOnInit() {
     this.cs.list().subscribe(data => {
       this.cars = data;
+      this.cars.sort(this.sortCar);
     });
   }
 
