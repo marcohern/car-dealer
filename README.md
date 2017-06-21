@@ -4,6 +4,13 @@ CarDealer is a Tech Demo of an implementation of Angular (formally known as Angu
 
 ## Installation
 
+### Installation Summary
+
+1. Install required tools (`npm`)
+2. Clone the Repository
+3. Download Dependencies (`npm install`)
+4. Run Dev Server (`ng serve`)
+
 ### 1. Install Required tools
 
 Car Dealer requires you to have Node Paclage Manager (`npm`) installed. You can head to `https://nodejs.org` to download and install Node.js along with `npm`, or you may download npm independently from `https://www.npmjs.com/`.
@@ -26,7 +33,7 @@ That should download all dependencies for the source code.
 
 ### 3. Run Dev server
 
-Run `ng serve` to rin the dev server. Navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
+Run `ng serve` to run the dev server. Navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
 ## Running tests
 
