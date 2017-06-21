@@ -38,5 +38,37 @@
         "year": 2015,
         "model": "Model S",
         "price": 255000
+    },
+    {
+        "id": 6,
+        "slug": "2017_nissan_gt-r",
+        "brand": "Nissan",
+        "year": 2017,
+        "model": "GT-R",
+        "price": 342000
+    },
+    {
+        "id": 7,
+        "slug": "2014_nissan_x-trail",
+        "brand": "Nissan",
+        "year": 2017,
+        "model": "X-Trail",
+        "price": 176000
+    },
+    {
+        "id": 8,
+        "slug": "2013_ferrari_458_italia_spider",
+        "brand": "Ferrari",
+        "year": 2013,
+        "model": "458 Italia Spider",
+        "price": 400000
+    },
+    {
+        "id": 9,
+        "slug": "2017_bugatti_chiron",
+        "brand": "Bugatti",
+        "year": 2017,
+        "model": "Chiron",
+        "price": 192000
     }
 ]

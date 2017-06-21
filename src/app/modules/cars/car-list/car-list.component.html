@@ -10,7 +10,7 @@
 </nav>
 
 <div class="alert alert-danger" role="alert" [hidden]="!compareError">
-  You are allowed to compare from {{config.compare.min}} to {{config.compare.max}} cars.
+  Solo puedes comparar desde {{config.compare.min}} hasta {{config.compare.max}} vehiculos.
 </div>
 <div *ngFor="let car of cars; let i = index" class="col-sm-3 car-summary">
   <div class="thumbnail">
