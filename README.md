@@ -1,8 +1,25 @@
 # CarDealer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
+CarDealer is a Tech Demo of an implementation of Angular (formally known as Angular2)
 
-## Development server
+## Installation
+
+### Clone the Repostory
+To install CarDealer, first clone the repository with the following command.
+
+`git clone XXXX`
+
+You may use GitHub Desktop or any other git client that you prefer.
+
+### Download Dependencies
+
+Next you must download dependencies by running `npm`:
+
+`npm install`
+
+That should download all dependencies for the source code.
+
+### Run Dev server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
