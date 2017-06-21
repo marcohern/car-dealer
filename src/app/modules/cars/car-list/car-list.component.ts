@@ -19,9 +19,11 @@ export class CarListComponent implements OnInit {
   private config = config;
   private selectedCar:Car = null;
   private cars:Car[] = [];
+  private filteredCars:Car[] = [];
   private compare:Car[] = [];
   private compareError:boolean = false;
   private compareInvalid:boolean = true;
+  private q:string = '';
   constructor(
     private cs:CarsService,
     private router:Router
@@ -42,22 +44,38 @@ export class CarListComponent implements OnInit {
     }
   }
 
+  filterCars() {
+    let q = this.q;
+    let rx = new RegExp(q,'i');
+    if (q=='') {
+      this.filteredCars = this.cars;
+      return;
+    }
+    this.filteredCars = [];
+    for (let car of this.cars) {
+      if (car.brand.match(rx) || car.model.match(rx) || car.year.toString().match(rx)) {
+        this.filteredCars.push(car);
+      }
+    }
+  }
+
   ngOnInit() {
     this.cs.list().subscribe(data => {
       this.cars = data;
       this.cars.sort(this.sortCar);
+      this.filteredCars = data;
     });
   }
 
   viewCarDetails(i) {
-    this.selectedCar = this.cars[i];
+    this.selectedCar = this.filteredCars[i];
     $('#car-detail').modal('show');
   }
 
   selectForComparison(i) {
     this.compareError = false;
     let j = 0;
-    let car = this.cars[i];
+    let car = this.filteredCars[i];
     let carInCompareList:boolean = false;
     for (j=0;j<this.compare.length;j++) {
       if (car.id == this.compare[j].id) {
@@ -66,15 +84,15 @@ export class CarListComponent implements OnInit {
       }
     }
     if (carInCompareList) {
-      this.cars[i].compare = false;
+      this.filteredCars[i].compare = false;
       this.compare.splice(j,1);
     } else {
       if (this.compare.length>=config.compare.max) {
         this.compareError = true;
         return;
       }
-      this.cars[i].compare = true;
-      this.compare.push(this.cars[i]);
+      this.filteredCars[i].compare = true;
+      this.compare.push(this.filteredCars[i]);
     }
     if (this.compare.length < config.compare.min) {
       this.compareInvalid = true;

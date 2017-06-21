@@ -10,10 +10,19 @@
    </ul>
 </nav>
 
+<div class="row">
+  <div class="col-lg-12">
+    <div class="input-group">
+      <i class="input-group-addon glyphicon glyphicon-search"></i>
+      <input type="text" class="form-control" [(ngModel)]="q" (keyup)="filterCars()"  placeholder="Buscar Auto">
+    </div>
+  </div>
+</div>
+
 <div class="alert alert-danger" role="alert" [hidden]="!compareError">
   Solo puedes comparar desde {{config.compare.min}} hasta {{config.compare.max}} vehiculos.
 </div>
-<div *ngFor="let car of cars; let i = index" class="col-sm-3 car-summary">
+<div *ngFor="let car of filteredCars; let i = index" class="col-sm-3 car-summary">
   <h3>{{car.year}} {{car.brand}} {{car.model}}</h3>
   <div class="thumbnail">
     <img src="/assets/cars/{{car.slug}}.th.jpg" alt="{{car.year}} {{car.brand}} {{car.model}}" class="img-responsive img-thumbnail">

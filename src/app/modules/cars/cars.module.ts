@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { CarRoutes } from './cars.routes';
@@ -14,6 +15,7 @@ import { CarsService } from './cars.service';
   imports: [
     CommonModule,
     HttpModule,
+    FormsModule,
     CarRoutes
   ],
   declarations: [CarDetailComponent, CarListComponent, CarCompareComponent],

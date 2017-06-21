@@ -51,7 +51,7 @@
         "id": 7,
         "slug": "2014_nissan_x-trail",
         "brand": "Nissan",
-        "year": 2017,
+        "year": 2014,
         "model": "X-Trail",
         "price": 176000
     },
@@ -70,5 +70,14 @@
         "year": 2017,
         "model": "Chiron",
         "price": 192000
+    },
+    {
+        "id": 10,
+        "slug": "2015_mercedes-benz_s-class",
+        "brand": "Mercedes-Benz",
+        "year": 2015,
+        "model": "S-Class",
+        "price": 192000
     }
+    
 ]
