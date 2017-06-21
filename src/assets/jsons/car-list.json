@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "slug": "2016_chevrolet_cruze",
+        "brand": "Chevrolet",
+        "year": 2016,
+        "model": "Cruze",
+        "price": 80000
+    },
+    {
+        "id": 2,
+        "slug": "2015_mercedes-benz_c-class",
+        "brand": "Mercedes-Benz",
+        "year": 2015,
+        "model": "C-Class",
+        "price": 115000
+    },
+    {
+        "id": 3,
+        "slug": "2016_chevrolet_silverado",
+        "brand": "Chevrolet",
+        "year": 2016,
+        "model": "Silverado",
+        "price": 95000
+    },
+    {
+        "id": 4,
+        "slug": "2015_corvette_z06",
+        "brand": "Corvette",
+        "year": 2015,
+        "model": "Z06",
+        "price": 175000
+    },
+    {
+        "id": 5,
+        "slug": "tesla_model_s",
+        "brand": "Tesla",
+        "year": 2015,
+        "model": "Model S",
+        "price": 255000
+    }
+]

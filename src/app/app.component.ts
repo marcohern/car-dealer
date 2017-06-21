@@ -8,7 +8,7 @@ import { MenuItem } from './modules/menu/menu-item';
 })
 export class AppComponent implements OnInit {
 
-  home = ['/'];
+  home = ['/home'];
   menu:MenuItem[] = [
     {label: 'Cars' ,active:false, route: ['/cars' ] },
     {label: 'About',active:false, route: ['/about'] }

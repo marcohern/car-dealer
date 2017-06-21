@@ -1,3 +1,29 @@
-<p>
-  car-list works!
-</p>
+<nav class="navbar navbar-default">
+   <ul class="nav navbar-nav">
+     <li>
+       <button href="#" class="btn btn-primary navbar-btn" [disabled]="compareInvalid" (click)="gotoCompare()">
+         <i class="glyphicon glyphicon-equalizer"></i> Comparar
+       </button>
+    </li>
+     <li *ngFor="let car of compare;"><a href="#">{{car.year}} {{car.brand}} {{car.model}}</a></li>
+   </ul>
+</nav>
+
+<div class="alert alert-danger" role="alert" [hidden]="!compareError">
+  You are allowed to compare from {{config.compare.min}} to {{config.compare.max}} cars.
+</div>
+<div *ngFor="let car of cars; let i = index" class="col-sm-3 car-summary">
+  <div class="thumbnail">
+    <img src="/assets/cars/{{car.slug}}.th.jpg" alt="{{car.year}} {{car.brand}} {{car.model}}" class="img-responsive img-thumbnail">
+    <div class="curtains" [ngClass]="(car.compare) ? 'active':''"></div>
+    <div class="options">
+      <a (click)="selectForComparison(i)">
+        <i class="glyphicon glyphicon-equalizer"></i>
+      </a>
+      <a (click)="viewCarDetails(i)">
+        <i class="glyphicon glyphicon-search"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<cd-car-detail dialogid="car-detail" [car]="selectedCar"></cd-car-detail>

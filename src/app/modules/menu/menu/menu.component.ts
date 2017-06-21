@@ -10,6 +10,9 @@ import { MenuItem } from '../menu-item';
 export class MenuComponent implements OnInit {
 
   @Input() links:MenuItem[];
+
+  @Input() home:any[];
+  
   constructor() { }
 
   activateLink(link:MenuItem) {

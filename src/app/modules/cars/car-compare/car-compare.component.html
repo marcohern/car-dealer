@@ -1,3 +1,38 @@
-<p>
-  car-compare works!
-</p>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <td *ngFor="let brand of comparisons.brand">&nbsp;</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>&nbsp;</th>
+      <td *ngFor="let im of comparisons.thumb;let i = index">
+        <div class="col-xs-12">
+          <a (click)="openDialog(i)">
+            <img class="img-responsive" src="{{im}}" alt="No Car" />
+          </a>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>Brand</th>
+      <td *ngFor="let brand of comparisons.brand">{{brand}}</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td *ngFor="let year of comparisons.year">{{year}}</td>
+    </tr>
+    <tr>
+      <th>Model</th>
+      <td *ngFor="let model of comparisons.model">{{model}}</td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td *ngFor="let price of comparisons.price">$ {{price | number:'1.2-2' }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<cd-car-detail dialogid="car-detail" [car]="modalCar"></cd-car-detail>

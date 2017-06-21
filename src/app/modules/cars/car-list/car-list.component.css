@@ -1,0 +1,51 @@
+
+.car-summary {
+    padding:8px;
+}
+
+.car-summary > div {
+    position: relative;
+    display:inline-block;
+}
+
+.car-summary > div > div.curtains {
+    position: absolute;
+    margin:0;
+    width:100%;
+    height: 100%;
+    top:0;
+    background-color: green;
+    opacity:0;
+}
+
+.car-summary > div > div.curtains.active {
+    opacity:0.5;
+}
+
+.car-summary > div > div.options {
+    position: absolute;
+    font-size: 48px;
+    border:0;
+    padding: 0;
+    top:50%;
+    left:50%;
+    margin-top: -24px;
+    margin-left: -48px;
+}
+.car-summary > div > div.options > a {
+    opacity: 0;
+    color: black;
+    text-decoration: none;
+}
+
+.car-summary > div:hover > img {
+    opacity: 0.5;
+}
+
+.car-summary > div:hover > div.options > a {
+    opacity: 0.5;
+}
+
+.car-summary > div:hover > div.options > a:hover {
+    opacity: 1;
+}

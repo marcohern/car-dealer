@@ -1,14 +1,14 @@
-<nav class="nav navbar-default">
-  <div class="container-fluid">
+<nav class="nav navbar-inverse">
+  <div class="container">
     <div class="navbar-header">
      <cd-collapser target="collapsible1"></cd-collapser>
-     <a class="navbar-brand" href="#">Car Dealer</a>
+     <a class="navbar-brand" [routerLink]="home">Car Dealer</a>
     </div>
 
     <div class="collapse navbar-collapse" id="collapsible1">
       <ul class="nav navbar-nav">
-        <li *ngFor="let link of links" [ngClass]="link.active ? 'active':''">
-          <a href="#">{{link.label}}</a>
+        <li *ngFor="let link of links" routerLinkActive="active">
+          <a [routerLink]="link.route">{{link.label}}</a>
         </li>        
       </ul>
     </div><!-- /.navbar-collapse -->
