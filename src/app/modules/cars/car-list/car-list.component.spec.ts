@@ -15,6 +15,7 @@ import { CarListComponent } from './car-list.component';
 
 import { CarsService } from '../cars.service';
 
+
 describe('CarListComponent', () => {
   let component: CarListComponent;
   let fixture: ComponentFixture<CarListComponent>;
@@ -41,5 +42,10 @@ describe('CarListComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a disabled compare button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('nav > ul > li > button').disabled).toBe(true);
   });
 });

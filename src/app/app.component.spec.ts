@@ -38,6 +38,18 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
+
+  it('should have a home url'), async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.home).toBe(['/home']);
+  });
+
+  it('should have a menu'), async(() => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.menu.length).toBe(2);
+  });
 /*
   it(`should have as title 'app'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);

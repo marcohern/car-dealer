@@ -14,4 +14,12 @@ describe('CarsService', () => {
   it('should be created', inject([CarsService], (service: CarsService) => {
     expect(service).toBeTruthy();
   }));
+
+  it('list should execute propperly', inject([CarsService], (service: CarsService) => {
+    expect(service.list()).toBeTruthy();
+  }));
+
+  it('view(1) should execute propperly', inject([CarsService], (service: CarsService) => {
+    expect(service.view(1)).toBeTruthy();
+  }));
 });
