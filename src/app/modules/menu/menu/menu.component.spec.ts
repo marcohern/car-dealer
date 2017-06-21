@@ -1,5 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CollapserComponent } from '../collapser/collapser.component';
+import { MenuItem } from '../menu-item';
+
 import { MenuComponent } from './menu.component';
 
 describe('MenuComponent', () => {
@@ -8,7 +14,11 @@ describe('MenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MenuComponent ]
+      imports: [
+        CommonModule,
+        RouterTestingModule
+      ],
+      declarations: [MenuComponent, CollapserComponent]
     })
     .compileComponents();
   }));
