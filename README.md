@@ -4,38 +4,39 @@ CarDealer is a Tech Demo of an implementation of Angular (formally known as Angu
 
 ## Installation
 
-### Clone the Repostory
+### 1. Install Required tools
+
+Car Dealer requires you to have Node Paclage Manager (`npm`) installed. You can head to `https://nodejs.org` to download and install Node.js along with `npm`, or you may download npm independently from `https://www.npmjs.com/`.
+
+### 2. Clone the Repostory
+
 To install CarDealer, first clone the repository with the following command.
 
-`git clone XXXX`
+`git clone https://github.com/marcohern/car-dealer.git`
 
 You may use GitHub Desktop or any other git client that you prefer.
 
-### Download Dependencies
+### 3. Download Dependencies
 
-Next you must download dependencies by running `npm`:
+Next you must download dependencies by running `npm install`:
 
 `npm install`
 
 That should download all dependencies for the source code.
 
-### Run Dev server
+### 3. Run Dev server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` to rin the dev server. Navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Running tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+Car Dealer has a number of Unit tests and E2E tests.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
+### Running Unit Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Running E2E Tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
