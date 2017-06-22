@@ -17,20 +17,20 @@ declare var $ :any;
 })
 export class CarListComponent implements OnInit {
 
-  private config = config;
-  private selectedCar:Car = null;
-  private cars:Car[] = [];
-  private filteredCars:Car[] = [];
-  private compare:Car[] = [];
-  private compareError:boolean = false;
-  private compareInvalid:boolean = true;
-  private q:string = '';
+  config = config;
+  selectedCar:Car = null;
+  cars:Car[] = [];
+  filteredCars:Car[] = [];
+  compare:Car[] = [];
+  compareError:boolean = false;
+  compareInvalid:boolean = true;
+  q:string = '';
   constructor(
     private cs:CarsService,
     private router:Router
   ) { }
 
-  sortCar(car1:Car, car2:Car):number {
+  compareCars(car1:Car, car2:Car):number {
     
     if      (car1.model > car2.model) return  1;
     else if (car1.model < car2.model) return -1;
@@ -48,6 +48,11 @@ export class CarListComponent implements OnInit {
   clearSearch() {
     this.q = '';
     this.filterCars();
+  }
+
+  sortCars() {
+    this.cars.sort(this.compareCars);
+    this.filteredCars = this.cars;
   }
 
   filterCars() {
@@ -68,8 +73,7 @@ export class CarListComponent implements OnInit {
   ngOnInit() {
     this.cs.list().subscribe(data => {
       this.cars = data;
-      this.cars.sort(this.sortCar);
-      this.filteredCars = data;
+      this.sortCars();
     });
   }
 
@@ -78,21 +82,25 @@ export class CarListComponent implements OnInit {
     $('#car-detail').modal('show');
   }
 
-  selectForComparison(i) {
-    this.compareError = false;
-    let j = 0;
-    let car = this.filteredCars[i];
+  findCarInCompareList(car:Car) {
     let carInCompareList:boolean = false;
-    for (j=0;j<this.compare.length;j++) {
+    for (let j=0;j<this.compare.length;j++) {
       if (car.id == this.compare[j].id) {
-        carInCompareList = true;
-        break;
+        return j;
       }
     }
-    if (carInCompareList) {
+    return -1;
+  }
+
+  selectForComparison(i) {
+    this.compareError = false;
+    let car = this.filteredCars[i];
+    let carIndex = this.findCarInCompareList(car);
+
+    if (carIndex >= 0) {
       //toastr.warning("Se elimina '" + car.year + " " + car.brand + " " + car.model + " de la cola.","Comparar");
-      this.filteredCars[i].compare = false;
-      this.compare.splice(j,1);
+      this.filteredCars[carIndex].compare = false;
+      this.compare.splice(carIndex,1);
     } else {
       if (this.compare.length>=config.compare.max) {
         toastr.error("Demasiados autos para comparar.","Comparar");
