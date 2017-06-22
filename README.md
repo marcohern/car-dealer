@@ -39,9 +39,19 @@ That should download all dependencies for the source code.
 
 Run `ng serve` to run the dev server. To run the app, just navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
-## Running tests
+## Vehicle Sorting
 
-Car Dealer has a number of Unit tests and E2E tests.
+The car list screen displays cars sorted in ascending order by model, brand and year, in that order. However, due to popular convention, the composite reference of each vehicle is `Year Brand Model`, so it may appear that the cars are not sorted propperly, but they are. Keep that in mind as to not be confused.
+
+## Vehicle Filtering
+
+Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing `ch` into the query box will match two `Chevrolet` cars as well as the `Bugatti Chiron`. Also, typing `20` will match all car models, due to the year (all models are post year 2000).
+
+## Tests
+
+### What is being tested
+
+Car Dealer has a number of Unit tests and E2E tests. Unit tests are scattered on all components in order to comply with their successfull execution. However, the Car List component (the page that displays the list of cars) has the most test implemented upon.
 
 ### Running Unit Tests
 
@@ -51,10 +61,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
-
-## Vehicle Sorting
-
-The vars screen displays cars sorted by model, brand and year, in that order. However, due to popular convention, the composite name of each vehicle is `Year Brand Model`.
 
 ## Further help
 
