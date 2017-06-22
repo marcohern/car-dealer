@@ -63,12 +63,12 @@ It is somewhat clear that it refers to a page where two cars will be compared an
 
 As mentioned before, since each car has a unique code called **slug**, the app uses that attribute as means to determine the image of the car.
 
-First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are `c`, which represents the image in high quality, and `th`,which is the thimbnail.
+First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are **`c`**, which represents the image in high quality, and **`th`**,which is the thimbnail.
 
 For example, the futuristic slick-looking 2015 Mercedes-Benz IAA car, has the appropriate slug **`2015_mercedes-benz_iaa`**, so the images associated to that car are:
 
-- `2015_mercedes-benz_iaa.**c**.jpg` (Full size image)
-- `2015_mercedes-benz_iaa.**th**.jpg` (Thumbnail image)
+- `2015_mercedes-benz_iaa.`**`c`**`.jpg` (**Full size image**)
+- `2015_mercedes-benz_iaa.`**`'th`**`.jpg` (**Thumbnail image**)
 
 In a real setting, images would either be stored in a database and accesed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or part of the filename. It is ideal that the images are stored in full size in every occation, but that it would be resampled or resize for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache those thumbnails, as to not resample them every time. These compound of practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and may stress the client application too much if these images are too big (old mobile phones usually have a hard time processing large images).
 
