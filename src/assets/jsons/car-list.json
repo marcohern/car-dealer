@@ -78,6 +78,13 @@
         "year": 2015,
         "model": "S-Class",
         "price": 192000
+    },
+    {
+        "id": 11,
+        "slug": "2015_mercedes-benz_iaa",
+        "brand": "Mercedes-Benz",
+        "year": 2015,
+        "model": "IAA",
+        "price": 325000
     }
-    
 ]

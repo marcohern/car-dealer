@@ -15,6 +15,9 @@
     <div class="input-group">
       <i class="input-group-addon glyphicon glyphicon-search"></i>
       <input type="text" class="form-control" [(ngModel)]="q" (keyup)="filterCars()"  placeholder="Buscar Auto">
+      <div class="input-group-btn">
+        <button class="btn btn-danger"><i class="glyphicon glyphicon-remove" (click)="clearSearch()"></i></button>
+      </div>
     </div>
   </div>
 </div>

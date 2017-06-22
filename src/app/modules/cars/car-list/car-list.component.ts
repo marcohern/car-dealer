@@ -45,6 +45,11 @@ export class CarListComponent implements OnInit {
     }
   }
 
+  clearSearch() {
+    this.q = '';
+    this.filterCars();
+  }
+
   filterCars() {
     let q = this.q;
     let rx = new RegExp(q,'i');
