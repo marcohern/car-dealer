@@ -16,8 +16,17 @@ export class CarsService {
       .map((r:Response) => <Car[]>r.json());
   }
 
-  public view(id:number) : Observable<Car> {
+  public view(id:number|string) : Observable<Car> {
     return this.http.get('/assets/jsons/car-list.json')
-      .map((r:Response) => <Car>r.json()[id-1]);
+      .map((r:Response) => {
+        let cars:Car[] = r.json();
+        if (typeof id == 'number') return <Car>r.json()[id-1]
+        else {
+          for (let c of cars) {
+            if (c.slug == id) return c;
+          }
+          return null;
+        }
+      });
   }
 }
