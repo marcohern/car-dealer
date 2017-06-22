@@ -47,6 +47,16 @@ The car list screen displays cars sorted in ascending order by model, brand and 
 
 Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing `ch` into the query box will match two `Chevrolet` cars as well as the `Bugatti Chiron`. Also, typing `20` will match all car models, due to the year (all models are post year 2000).
 
+## Car slug attribute
+
+You may have noticed that cars have a `slug` field. The `slug` field is intended to be a unique url-safe code that references the car. That is, by reading the slug under certain contexts, you get a since of what the entity is. This is helpfull when you want your users to be able to determine more or less what data is being presented just by reading the url, in case they want to share the url with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. I find implementing `slug` attribute on a variety of entities to be a very usefull practice with many advantages.
+
+For example, in the following url
+
+`http://localhost:4200/car/compare/2016_roborace_formula_e/2015_mercedes-benz_iaa`
+
+It is somewhat clear that it refers to a page where two cars will be compared and those cars are the 2016 Roborace Formula E and the 2015 Mercedes-Benz IAA.
+
 ## Tests
 
 ### What is being tested
