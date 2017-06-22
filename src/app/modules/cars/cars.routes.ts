@@ -12,6 +12,10 @@ import { pushComparePaths } from './pushComparePaths';
 let routes: Routes = [
     { path: 'cars'   , component: CarListComponent   }
 ];
+
+/**
+ * Compare routes are dynamic, hence they are dynamically generated.
+ */
 routes = pushComparePaths(routes);
 
 /**

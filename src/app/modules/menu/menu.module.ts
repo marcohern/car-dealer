@@ -5,6 +5,10 @@ import { MenuComponent } from './menu/menu.component';
 import { CollapserComponent } from './collapser/collapser.component';
 import { MenuItem } from './menu-item';
 
+/**
+ * Menu module.
+ * Contains the Menu on the top of all pages.
+ */
 @NgModule({
   imports: [
     CommonModule,
