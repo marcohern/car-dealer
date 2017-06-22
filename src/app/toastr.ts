@@ -1,5 +1,14 @@
+/**
+ * Toastr variable declaration.
+ * Necessary for Typescript to know that
+ * a vendor resource (Toastr) will be used in 
+ * this app.
+ */
 declare var toastr:any;
 
+/**
+ * Toastr settings.
+ */
 toastr.options = {
   "closeButton": true,
   "debug": false,

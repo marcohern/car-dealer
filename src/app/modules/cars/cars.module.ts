@@ -11,6 +11,9 @@ import { CarCompareComponent } from './car-compare/car-compare.component';
 
 import { CarsService } from './cars.service';
 
+/**
+ * CarsModule. Includes the car list page, car compare page and a car details dialog.
+ */
 @NgModule({
   imports: [
     CommonModule,

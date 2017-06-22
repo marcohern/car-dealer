@@ -1,10 +1,14 @@
+/**
+ * Car entity.
+ * Represents a single car.
+ */
 export interface Car {
-    id:number;
-    slug:string;
-    brand:string;
-    year:number;
-    model:string;
-    price:number;
+    id:number;    //Car ID
+    slug:string;  //Car Slug (Unique)
+    brand:string; //Brand name
+    year:number;  //Model Year
+    model:string; //Model Name
+    price:number; //Price value
 
-    compare:boolean;
+    compare:boolean; //Whether it will be used to be compared to another car
 }

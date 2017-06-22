@@ -8,6 +8,9 @@ import { config } from '../../../config';
 declare var jquery:any;
 declare var $ :any;
 
+/**
+ * Car Compare Component. Page or screen that allows cars to be compared.
+ */
 @Component({
   moduleId:module.id,
   selector: 'cd-car-compare',
@@ -16,8 +19,14 @@ declare var $ :any;
 })
 export class CarCompareComponent implements OnInit {
 
-  private cnt = 0;
+  /**
+   * Car being displayed
+   */
   private modalCar:Car = null;
+
+  /**
+   * Comparison table. Stores all car attributes and displayes them accordingly.
+   */
   private comparisons = {
     cars:[],
     thumb:[],
@@ -27,11 +36,22 @@ export class CarCompareComponent implements OnInit {
     model:[],
     price:[]
   };
+
+  /**
+   * Constructor
+   * @param cs Cars Service
+   * @param route Activated Route
+   */
   constructor(
     private cs:CarsService,
     private route:ActivatedRoute
   ) { }
 
+  /**
+   * Checks if a certain car has been specified in the route and acquires it
+   * to compare.
+   * @param paramId the route parameter id.
+   */
   acquireCar(paramId) {
     let id = this.route.snapshot.params[paramId];
     if (id) {
@@ -48,11 +68,19 @@ export class CarCompareComponent implements OnInit {
     }
   }
 
+  /**
+   * Opens the details dialog for a given car.
+   * @param i Car index in the comparisons table
+   */
   openDialog(i) {
     this.modalCar = this.comparisons.cars[i];
     $('#car-detail').modal('show');
   }
 
+  /**
+   * Initialize component. Checks how many cars are being compared
+   * and acquires each.
+   */
   ngOnInit() {
     for (let i=1; i<=config.compare.max; i++) {
       this.acquireCar('id'+i);
