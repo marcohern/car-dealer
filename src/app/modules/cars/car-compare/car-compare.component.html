@@ -1,5 +1,8 @@
-<h2>Car Comparison</h2>
+<h2>Comparar Carros</h2>
 <a class="btn btn-warning" [routerLink]="['/cars']"><i class="glyphicon glyphicon-arrow-left"></i> Regresar a Carros</a>
+<div class="alert alert-danger" role="alert" [hidden]="!carError">
+  Que raro! ¿Como diste aqui? Algunos carros especificados para comparar no existen. <a [routerLink]="['/cars']">Clic aqui</a> para ir la lista de carros y selecciona algonos para comparar.
+</div>
 <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>

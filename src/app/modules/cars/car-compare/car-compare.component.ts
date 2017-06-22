@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { CarsService } from '../cars.service';
 import { Car } from '../car';
 
 import { config } from '../../../config';
 
+declare var toastr:any;
 declare var jquery:any;
 declare var $ :any;
 
@@ -24,6 +25,8 @@ export class CarCompareComponent implements OnInit {
    */
   private modalCar:Car = null;
 
+  private carError:boolean = false;
+
   /**
    * Comparison table. Stores all car attributes and displayes them accordingly.
    */
@@ -40,11 +43,13 @@ export class CarCompareComponent implements OnInit {
   /**
    * Constructor
    * @param cs Cars Service
-   * @param route Activated Route
+   * @param route Current Route
+   * @param router Router
    */
   constructor(
     private cs:CarsService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private router:Router
   ) { }
 
   /**
@@ -57,6 +62,11 @@ export class CarCompareComponent implements OnInit {
     if (id) {
       
       this.cs.view(id).subscribe(car => {
+        if (car==null) {
+          this.carError = true;
+          toastr.error("Car '"+id+"' does not exist.","Car Not Found");
+          return;
+        }
         this.comparisons.cars.push(car);
         this.comparisons.thumb.push('assets/cars/' + car.slug + '.th.jpg');
         this.comparisons.image.push('assets/cars/' + car.slug + '.c.jpg');
