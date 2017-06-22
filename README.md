@@ -43,15 +43,15 @@ Run `ng serve` to run the dev server. To run the app, just navigate to `http://l
 
 ## Vehicle Sorting
 
-The car list screen displays cars sorted in ascending order by model, brand and year, in that order. However, due to popular convention, the composite reference of each vehicle is `Year Brand Model`, so it may appear that the cars are not sorted propperly, but they are. Keep that in mind as to not be confused.
+The car list screen displays cars sorted in ascending order by **model, brand and year**, in that order. However, due to popular convention, the composite reference of each vehicle is **Year Brand Model**, so it may appear that the cars are not sorted propperly, but they are. Keep that in mind as to not be confused.
 
 ## Vehicle Filtering
 
-Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing `ch` into the query box will match two `Chevrolet` cars as well as the `Bugatti Chiron`. Also, typing `20` will match all car models, due to the year (all models are post year 2000).
+Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** cars as well as the **`Bugatti Chiron`**. Also, typing **`20`** will match all car models, due to the year (all models are post year 2000).
 
 ## Car slug attribute
 
-You may have noticed that cars have a `slug` field. The `slug` field is intended to be a unique url-safe code that references the car. That is, by reading the slug under certain contexts, you get a since of what the entity is. This is helpfull when you want your users to be able to determine more or less what data is being presented just by reading the url, in case they want to share the url with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. I find implementing `slug` attribute on a variety of entities to be a very usefull practice with many advantages.
+You may have noticed that cars have a **slug** field. The slug field is intended to be a unique url-safe code that references the car. That is, by reading the slug under certain contexts, you get a since of what the entity is. This is helpfull when you want your users to be able to determine more or less what data is being presented just by reading the url, in case they want to share the url with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages.
 
 For example, in the following url
 
@@ -61,14 +61,14 @@ It is somewhat clear that it refers to a page where two cars will be compared an
 
 ## Images and Thumbnails
 
-As mentioned before, since each car has a unique code called `slug`, the app uses that attribute as means to determine the image of the car.
+As mentioned before, since each car has a unique code called **slug**, the app uses that attribute as means to determine the image of the car.
 
-First of all, The images are stored in the `/src/assets/cars` folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are `c`, which represents the image in high quality, and `th`,which is the thimbnail.
+First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are `c`, which represents the image in high quality, and `th`,which is the thimbnail.
 
-For example, the futuristic slick-looking 2015 Mercedes-Benz IAA car, has the appropriate slug `2015_mercedes-benz_iaa`, so the images associated to that car are:
+For example, the futuristic slick-looking 2015 Mercedes-Benz IAA car, has the appropriate slug **`2015_mercedes-benz_iaa`**, so the images associated to that car are:
 
-- 2015_mercedes-benz_iaa.c.jpg (Full size image)
-- 2015_mercedes-benz_iaa.th.jpg (Thumbnail image)
+- `2015_mercedes-benz_iaa.**c**.jpg` (Full size image)
+- `2015_mercedes-benz_iaa.**th**.jpg` (Thumbnail image)
 
 In a real setting, images would either be stored in a database and accesed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or part of the filename. It is ideal that the images are stored in full size in every occation, but that it would be resampled or resize for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache those thumbnails, as to not resample them every time. These compound of practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and may stress the client application too much if these images are too big (old mobile phones usually have a hard time processing large images).
 
