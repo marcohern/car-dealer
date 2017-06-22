@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { CarRoutes } from '../cars.routes';
 
@@ -25,6 +26,7 @@ describe('CarListComponent', () => {
       imports: [
         CommonModule,
         HttpModule,
+        FormsModule,
         RouterTestingModule,
         CarRoutes
       ],

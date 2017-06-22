@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -23,6 +24,7 @@ describe('CarCompareComponent', () => {
       imports: [
         CommonModule,
         HttpModule,
+        FormsModule,
         RouterTestingModule,
         CarRoutes
       ],

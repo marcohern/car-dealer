@@ -86,5 +86,13 @@
         "year": 2015,
         "model": "IAA",
         "price": 325000
+    },
+    {
+        "id": 12,
+        "slug": "2016_roborace_formula_e",
+        "brand": "Roborace",
+        "year": 2016,
+        "model": "Formula E",
+        "price": 325000
     }
 ]
