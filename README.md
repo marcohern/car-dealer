@@ -1,6 +1,8 @@
 # CarDealer
 
-CarDealer is a Tech Demo of an implementation of Angular (formally known as Angular2)
+CarDealer is a Tech Demo of an implementation of Angular (formally known as Angular2). Not to be confused with AngularJS, usually refered to as Angular 1.
+
+It uses [Bootstrap 3](http://getbootstrap.com/) for it's UX elements as well as [Toastr](http://codeseven.github.io/toastr/) for popup notifications.
 
 ## Installation
 
@@ -68,7 +70,7 @@ For example, the futuristic slick-looking 2015 Mercedes-Benz IAA car, has the ap
 - 2015_mercedes-benz_iaa.c.jpg (Full size image)
 - 2015_mercedes-benz_iaa.th.jpg (Thumbnail image)
 
-In a real setting, images would either be stored in a database and accesed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or part of the filename. It is ideal that the images are stored in full size in every occation, but that it would be resampled or resize for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache those thumbnails, as to not resamplethem every time. These compound of practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and may stress the client application too much if these images are too big (old mobile phones usually have a hard time processing large images).
+In a real setting, images would either be stored in a database and accesed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or part of the filename. It is ideal that the images are stored in full size in every occation, but that it would be resampled or resize for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache those thumbnails, as to not resample them every time. These compound of practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and may stress the client application too much if these images are too big (old mobile phones usually have a hard time processing large images).
 
 ## Tests
 
