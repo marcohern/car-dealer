@@ -90,15 +90,17 @@ export class CarListComponent implements OnInit {
       }
     }
     if (carInCompareList) {
+      //toastr.warning("Se elimina '" + car.year + " " + car.brand + " " + car.model + " de la cola.","Comparar");
       this.filteredCars[i].compare = false;
       this.compare.splice(j,1);
     } else {
       if (this.compare.length>=config.compare.max) {
+        toastr.error("Demasiados autos para comparar.","Comparar");
         this.compareError = true;
         return;
       }
       this.filteredCars[i].compare = true;
-      toastr.info("Added '" + car.year + " " + car.brand + " " + car.model + " to compare queue.","Compare");
+      //toastr.warning("Se añade '" + car.year + " " + car.brand + " " + car.model + " a la cola.","Comparar");
       this.compare.push(this.filteredCars[i]);
     }
     if (this.compare.length < config.compare.min) {
