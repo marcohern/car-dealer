@@ -2,7 +2,7 @@
 
 CarDealer is a Tech Demo of an implementation of Angular (formally known as Angular2). Not to be confused with AngularJS, usually refered to as Angular 1.
 
-It uses [Bootstrap 3](http://getbootstrap.com/) for it's UX elements as well as [Toastr](http://codeseven.github.io/toastr/) for popup notifications.
+It is developed using [Angular CLI](https://cli.angular.io/) for scaffolding and general management, [Bootstrap 3](http://getbootstrap.com/) for it's UX elements, as well as [Toastr](http://codeseven.github.io/toastr/) for popup notifications.
 
 ## Installation
 
