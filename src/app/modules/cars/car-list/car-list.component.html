@@ -2,7 +2,7 @@
 <nav class="navbar navbar-default compare-queue">
    <ul class="nav navbar-nav">
      <li>
-       <button href="#" class="btn btn-primary navbar-btn" [disabled]="compareInvalid" (click)="gotoCompare()">
+       <button href="#" class="btn btn-success navbar-btn" [disabled]="compareInvalid" (click)="gotoCompare()">
          <i class="glyphicon glyphicon-equalizer"></i> Comparar
        </button>
     </li>
@@ -24,6 +24,9 @@
 </div>
 <div *ngFor="let car of filteredCars; let i = index" class="col-sm-3 car-summary">
   <h3>{{car.year}} {{car.brand}} {{car.model}}</h3>
+  <div class="row">
+    <div class="list-price">$ {{car.price | number:'1.2-2'}}</div>
+  </div>
   <div class="thumbnail">
     <img src="/assets/cars/{{car.slug}}.th.jpg" alt="{{car.year}} {{car.brand}} {{car.model}}" class="img-responsive img-thumbnail">
     <div class="curtains" [ngClass]="(car.compare) ? 'active':''"></div>
@@ -34,6 +37,29 @@
       <a (click)="viewCarDetails(i)">
         <i class="glyphicon glyphicon-search"></i>
       </a>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="btn-group btn-group-justified" role="group" aria-label="">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" (click)="viewCarDetails(i)">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning" (click)="selectForComparison(i)">
+              <i class="glyphicon glyphicon-plus" *ngIf="!car.compare"></i>
+              <i class="glyphicon glyphicon-minus" *ngIf="car.compare"></i>
+            </button>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-success" [disabled]="compareInvalid" (click)="gotoCompare()">
+              <i class="glyphicon glyphicon-equalizer"></i>
+              <i class="glyphicon glyphicon-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -5,6 +5,7 @@ import { Car } from '../car';
 
 import { config } from '../../../config';
 
+declare var toastr:any;
 declare var jquery:any;
 declare var $ :any;
 
@@ -92,6 +93,7 @@ export class CarListComponent implements OnInit {
         return;
       }
       this.filteredCars[i].compare = true;
+      toastr.info("Added '" + car.year + " " + car.brand + " " + car.model + " to compare queue.","Compare");
       this.compare.push(this.filteredCars[i]);
     }
     if (this.compare.length < config.compare.min) {

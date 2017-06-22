@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from './modules/menu/menu-item';
+import './toastr.ts';
 
 @Component({
   selector: 'cd-root',
@@ -10,8 +11,8 @@ export class AppComponent implements OnInit {
 
   home = ['/home'];
   menu:MenuItem[] = [
-    {label: 'Cars' ,active:false, route: ['/cars' ] },
-    {label: 'About',active:false, route: ['/about'] }
+    {label: 'Cars' , route: ['/cars' ] },
+    {label: 'About', route: ['/about'] }
   ];
 
   ngOnInit() {
