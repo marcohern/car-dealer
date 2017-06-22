@@ -15,7 +15,7 @@ It is developed using [Angular CLI](https://cli.angular.io/) for scaffolding and
 
 ### 1. Install Required tools
 
-Car Dealer requires you to have Node Package Manager (`npm`) installed. You can head to `https://nodejs.org` to download and install Node.js along with `npm`, or you may download npm independently from `https://www.npmjs.com/`.
+Car Dealer requires you to have Node Package Manager (`npm`) installed. You can head to [NodeJS.org](https://nodejs.org) to download and install Node.js along with `npm`, or you may download npm independently from [Npmjs.org](https://www.npmjs.com/).
 
 You may also need Angular CLI. Install it through npm if you don't have it allready.
 
