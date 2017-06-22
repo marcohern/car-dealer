@@ -94,5 +94,13 @@
         "year": 2016,
         "model": "Formula E",
         "price": 325000
+    },
+    {
+        "id": 13,
+        "slug": "2017_toyota_c-hr",
+        "brand": "Toyota",
+        "year": 2017,
+        "model": "C-HR",
+        "price": 220000
     }
 ]
