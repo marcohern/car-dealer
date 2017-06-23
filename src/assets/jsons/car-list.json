@@ -105,9 +105,9 @@
     },
     {
         "id":14,
-        "slug":"2017_pixar_lightning_mcqueen",
+        "slug":"2006_pixar_lightning_mcqueen",
         "brand":"Pixar",
-        "year":2017,
+        "year":2006,
         "model": "Lightning McQueen",
         "price": 9999999.95
     },
@@ -132,7 +132,15 @@
         "slug":"1982_delorean_dmc-12-mod",
         "brand":"DeLorean",
         "year":1982,
-        "model": "DMC-12",
+        "model": "DMC-12 (Modded)",
         "price": 6999999.95
+    },
+    {
+        "id":18,
+        "slug":"1969_dodge_charger",
+        "brand":"Dodge",
+        "year":1969,
+        "model": "Charger",
+        "price": 999999.95
     }
 ]
