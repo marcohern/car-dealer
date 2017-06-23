@@ -31,9 +31,10 @@ You may use GitHub Desktop or any other git client that you prefer.
 
 ### 3. Download Dependencies
 
-Next you must download dependencies by running `npm install`:
+Next you must download dependencies by running `npm install` from within the root folder of CarDealer application:
 
-`npm install`
+`.../> cd car-dealer`
+`.../car-dealer> npm install`
 
 That should download all dependencies for the source code.
 
@@ -41,9 +42,11 @@ That should download all dependencies for the source code.
 
 Run `ng serve` to run the dev server. To run the app, just navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
+And that is it. You are all set!
+
 ## Key files and folders
 
-The following list of files are key, you may want to keep track of them:
+The following list of files and folders that are key, you may want to keep track of them:
 
 - `src/app` Application source code root
 - `src/app/modules` Application submodules
@@ -63,7 +66,22 @@ Each car entity contains the following fields:
 - **model**: name of the model.
 - **price**: sale price.
 
-(*) see [Car slug field](#car-slug-field) section to find out more about the slug field and it's pourpose.
+(*) See [Car slug field](#car-slug-field) section to find out more about the slug field and it's pourpose.
+
+The following is a sample of a car in json form:
+
+```
+{
+    "id": 5,
+    "slug": "tesla_model_s",
+    "brand": "Tesla",
+    "year": 2015,
+    "model": "Model S",
+    "price": 255000
+}
+```
+
+The `car-list.json` files contains many of these samples.
 
 ## Modular design
 
@@ -106,15 +124,15 @@ Note that even though you can generate a unique hash or a guid for a slug if you
 
 ### Do slugs need context?
 
-**Short answer**: it is up to you to add as much context as you want.
+**Short answer**: No, but the more the better. It is up to you to add as much context as you want.
 
-**Long answer**: In this example (CarDealer), the context of each of the slugs for each car requires you to know that these are cars. In other words, if you read a slug without knowing that it is a car, you may not know what it is refering to. It sounds like a car, but it also could be a toy, or a lego set. But this is fine, since we can add more context when we use the slug in a url.
+**Long answer**: In this example (CarDealer), the context of each of the slugs for each car requires you to know that these are cars. In other words, if you read a slug without knowing that it is a car, you may not know what it is refering to. It sounds like a car, but it also could be a toy, a lego set, or perhaps an obscure reference to a space novel spaceship. But this is fine, since we can add more context when we use the slug in a url.
 
 For example, can you guess what this fake url is refering to, just by reading it?
 
-`http://www.carsforsale.fake/car/2014_maserati_model-b` (Fake URL)
+`http://www.carsforsale.fake/car/2014_maserati_model-b` (**Fake URL**)
 
-Well you may not be an expert in cars, or the internet, and you may not even be a salesman, but just by reading the web address, you can probably tell that navigating to that url will take to the a details page for a **car**, probably for sale. The car is likely a **2014** model, and you may guess that the name of that model is **model-b** and that the brand may well be **maserati**. Or maybe the brand is **model-b** and the model is called **maserati**? That is debateable, but either way, you are in the right direction, and you have not even navigated to that address.
+Well you may not be an expert in cars, or the internet, and you may not even be a salesman, but just by reading the web address, you can probably tell that navigating to that url will take to the a details page for a **car**, probably for sale. The car is likely a **2014** model, and you may guess that the name of that model is **model-b** and that the brand may well be **maserati**. Or maybe the brand is **model-b** and the model is called **maserati**? That is debatable, but either way, you are in the right direction, and you have not even navigated to that address.
 
 In summary, my slugs do not have enough context to work by themselves, but you can add as much context as you want, if you have the means to. So, like I said, it is up to you.
 
