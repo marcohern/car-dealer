@@ -102,5 +102,13 @@
         "year": 2017,
         "model": "C-HR",
         "price": 220000
+    },
+    {
+        "id":14,
+        "slug":"2017_pixar_lightning_mcqueen",
+        "brand":"Pixar",
+        "year":2017,
+        "model": "Lightning McQueen",
+        "price": 9999999.95
     }
 ]
