@@ -34,6 +34,7 @@ You may use GitHub Desktop or any other git client that you prefer.
 Next you must download dependencies by running `npm install` from within the root folder of CarDealer application:
 
 `.../> cd car-dealer`
+
 `.../car-dealer> npm install`
 
 That should download all dependencies for the source code.
