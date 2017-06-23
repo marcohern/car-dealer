@@ -86,19 +86,19 @@ Vehicles are filtered by model, brand and year. Any part of the query string tha
 
 ## Car slug field
 
-You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. This means that, by reading the slug under certain contexts, you get a since of what the entity is. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, this *code* can be rendered within a url. This is helpfull when you want your users to be able to determine more or less what data will be presented once we navigate to the address just by reading it, and also if they want to share the address with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. See the [Images and Thumbnail](#images-and-thumbnails) section for more details.
+You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. This means that, by reading the slug under certain contexts, you get a since of what the entity is. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, this *code* can be rendered within a url. This is helpfull when you want your users to be able to determine more or less what data will be presented before he or she navigates to the addressm just by reading it. Also, if they want to share the address with a friend, he can read the address and also infer what the content is about. It is also very usefull for the images, which have the slug as part of their filename. See the [Images and Thumbnail](#images-and-thumbnails) section for more details.
 
-I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages. For example, in the following url
+I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages. For example, in the following address...
 
 `http://localhost:4200/car/compare/2016_roborace_formula_e/2015_mercedes-benz_iaa`
 
-It is somewhat clear that it refers to a page where two cars will be compared and those cars are the 2016 Roborace Formula E and the 2015 Mercedes-Benz IAA.
+...it is somewhat discernable that it refers to a page where two **cars** will be **compared**, and those cars are the **2016 Roborace Formula E** and the **2015 Mercedes-Benz IAA**.
 
 ### How are slugs generated?
 
-In a real setting, the slug for each car, or any entity, for that matter, can be either generated automatically by the server, provided by the client app, or a combination of both. It's similar to a username in that it can be provided by the user and must be unique, but it must also be descriptive, and obviously, url-safe. Those are the 3 most important rules for a slug.
+In a real setting, the slug for each car, or any entity, for that matter, can be either generated automatically by the server, provided by the client app, or a combination of both. It's similar to a username in that it can be provided by the user and must be unique, but it must also be descriptive, and obviously, url-safe. unique, descriptive and url-safe are the 3 most important principles for slug generation.
 
-More often than not, slug values are adapted from the name of the entity (assuming the entity has a name). For example: a news paper article called *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`.
+More often than not, slug values are adapted from the name or title of the entity (assuming the entity has a name or title). For example: a news paper article titled *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`. Another example: in a celebrity gossip website, the slug for famous hollywood celebrity *Angelina Jolie* may well be `angelina-jolie`.
 
 Beyond that, it is up to the developer to determine if and how to generate them, or how to allow users to provide them and at the same time, ensure that they are unique per entity.
 
@@ -106,9 +106,9 @@ Note that even though you can generate a unique hash or a guid for a slug if you
 
 ### Do slugs need context?
 
-Short answer: it is up to you, to add as much context as you want.
+**Short answer**: it is up to you to add as much context as you want.
 
-Long answer: In this example (CarDealer), the context of each of the slugs for each car requires you to know that these are cars. In other words, if you read a slug without knowing that it is a car, you may not know what it is refering to. It sounds like a car, but it also could be a toy, or a lego set. But this is fine, since we can add more context when we use the slug in a url.
+**Long answer**: In this example (CarDealer), the context of each of the slugs for each car requires you to know that these are cars. In other words, if you read a slug without knowing that it is a car, you may not know what it is refering to. It sounds like a car, but it also could be a toy, or a lego set. But this is fine, since we can add more context when we use the slug in a url.
 
 For example, can you guess what this fake url is refering to, just by reading it?
 
