@@ -101,8 +101,7 @@ The car list screen displays cars sorted in ascending order by **model, brand an
 
 ## Vehicle Filtering
 
-Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** brand cars as well as a **`Bugatti Chiron`** model. Also, typing **`20`** will match all car models, due to the year (all models are post year 2000).
-
+Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** brand cars as well as a **`Bugatti Chiron`** model. Also, typing **`20`** will match many car models, due to the year (most models are post year 2000).
 
 ## The compare button
 

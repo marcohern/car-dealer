@@ -110,5 +110,29 @@
         "year":2017,
         "model": "Lightning McQueen",
         "price": 9999999.95
+    },
+    {
+        "id":15,
+        "slug":"1967_pops-racer_mach-5",
+        "brand":"Pops Racer",
+        "year":1967,
+        "model": "Mach 5",
+        "price": 8999999.95
+    },
+    {
+        "id":16,
+        "slug":"1982_knight-industries_two_thousahd",
+        "brand":"Knight Industries",
+        "year":1982,
+        "model": "Two Thousand",
+        "price": 7999999.95
+    },
+    {
+        "id":17,
+        "slug":"1982_delorean_dmc-12-mod",
+        "brand":"DeLorean",
+        "year":1982,
+        "model": "DMC-12",
+        "price": 6999999.95
     }
 ]
