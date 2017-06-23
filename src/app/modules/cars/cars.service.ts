@@ -39,10 +39,11 @@ export class CarsService {
     return this.http.get('/assets/jsons/car-list.json')
       .map((r:Response) => {
         let cars:Car[] = r.json();
-        if (typeof id == 'number') return <Car>r.json()[id-1]
+        let nid:number = Number(id);
+        if (id != NaN) return <Car>r.json()[nid-1]
         else {
           for (let c of cars) {
-            if (c.slug == id) return c;
+            if (c.slug == ''+id) return c;
           }
           return null;
         }

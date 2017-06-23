@@ -176,7 +176,10 @@ export class CarListComponent implements OnInit {
   gotoCompare() {
     let route = ['/car/compare'];
     for (let i=0;i<this.compare.length;i++) {
-      route.push('' + this.compare[i].slug);
+      if (config.compare.useSlugs)
+        route.push(this.compare[i].slug);
+      else 
+        route.push('' + this.compare[i].id);
     }
 
     this.router.navigate(route);
