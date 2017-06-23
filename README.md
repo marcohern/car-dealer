@@ -25,7 +25,7 @@ You may also need Angular CLI. Install it through npm if you don't have it allre
 
 To install CarDealer, first clone the repository with the following command.
 
-`git clone https://github.com/marcohern/car-dealer.git ./my/local/car-dealer/path`
+`git clone https://github.com/marcohern/car-dealer.git ./car-dealer`
 
 You may use GitHub Desktop or any other git client that you prefer.
 
@@ -50,11 +50,10 @@ The following list of files and folders that are key, you may want to keep track
 
 - `src/app` Application source code root
 - `src/app/modules` Application submodules
-- `src/app/config.ts` Compare settings
+- `src/app/config.ts` [Compare settings](#the-compare-settings-file-configts---experimental)
 - `src/app/toastr.ts` Toastr settings
 - `src/assets/jsons/car-list.json` List of available cars.
-- `src/assets/cars` Car images
-
+- `src/assets/cars` [Car images](#images-and-thumbnails)
 ## Car structure
 
 Each car entity contains the following fields:
