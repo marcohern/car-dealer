@@ -103,7 +103,7 @@ Vehicles are filtered by model, brand and year. Any part of the query string tha
 
 ## Car slug field
 
-You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. This means that, by reading the slug under certain contexts, you get a since of what the entity is. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, this *code* can be rendered within a url. This is helpfull when you want your users to be able to determine more or less what data will be presented before he or she navigates to the addressm just by reading it. Also, if they want to share the address with a friend, he can read the address and also infer what the content is about. It is also very usefull for the images, which have the slug as part of their filename. See the [Images and Thumbnail](#images-and-thumbnails) section for more details.
+You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. The idea is that, by reading the slug under certain contexts, you get a since of what the entity is, or what content it has, without having additional information or looking at a picture. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, this *code* can be rendered within a url. This is helpfull when you want your users to be able to, just by reading the address, determine more or less what data will be presented before hand. Also, if he or she wants to share the address with a friend, by copying and pasting it in a chatroom, then the friend can read the address and also infer what the content is about. It is also very usefull for the images, which have the slug as part of their filename. See the [Images and Thumbnail](#images-and-thumbnails) section for more details.
 
 I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages. For example, in the following address...
 
@@ -113,13 +113,13 @@ I find implementing slug attribute on a variety of entities to be a very usefull
 
 ### How are slugs generated?
 
-In a real setting, the slug for each car, or any entity, for that matter, can be either generated automatically by the server, provided by the client app, or a combination of both. It's similar to a username in that it can be provided by the user and must be unique, but it must also be descriptive, and obviously, url-safe. unique, descriptive and url-safe are the 3 most important principles for slug generation.
+In a real setting, the slug for each car, or any entity, for that matter, is usually provided by the user, weather it adapts attributes of the entity to generate it or simply prided by the user, like a username: it is provided by the user, the app makes sure that it is unique, but the slug must also be descriptive, and obviously, url-safe.
 
-More often than not, slug values are adapted from the name or title of the entity (assuming the entity has a name or title). For example: a news paper article titled *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`. Another example: in a celebrity gossip website, the slug for famous hollywood celebrity *Angelina Jolie* may well be `angelina-jolie`.
+More often than not, slug values are adapted from the name or title of the entity (assuming the entity has a name or title). For example: a news paper article titled *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`. Another example: in a celebrity gossip website, the slug used for the online profile of famous hollywood celebrity *Angelina Jolie*, may well be `angelina-jolie`. You can probably see a pattern by now.
 
 Beyond that, it is up to the developer to determine if and how to generate them, or how to allow users to provide them and at the same time, ensure that they are unique per entity.
 
-Note that even though you can generate a unique hash or a guid for a slug if you like (it's quite feasable), doing this misses the point. Remember: you want to be able to tell what the entity is just by reading the slug, and a jumbled mess of letters and numbers does not tell you that that string or code is refering to a car.
+**Note** that even though you can generate a unique hash or a guiid for a slug if you like (it's quite feasable), doing this misses the point. Remember: you want to be able to tell what the entity is just by reading the slug, and a jumbled mess of letters and numbers does not tell you that that string or code is refering to a car.
 
 ### Do slugs need context?
 
@@ -133,7 +133,7 @@ For example, can you guess what this fake url is refering to, just by reading it
 
 Well you may not be an expert in cars, or the internet, and you may not even be a salesman, but just by reading the web address, you can probably tell that navigating to that url will take to the a details page for a **car**, probably for sale. The car is likely a **2014** model, and you may guess that the name of that model is **model-b** and that the brand may well be **maserati**. Or maybe the brand is **model-b** and the model is called **maserati**? That is debatable, but either way, you are in the right direction, and you have not even navigated to that address.
 
-In summary, my slugs do not have enough context to work by themselves, but you can add as much context as you want, if you have the means to. So, like I said, it is up to you.
+In summary, my slugs may not have enough context to work by themselves, but you can add as much context as you want, if you have the means to. So, like I said, it is up to you.
 
 ## Compare Settings
 
@@ -145,7 +145,7 @@ But another interesting aspect of the compare url, or compare route, is the fact
 
 In this case, however, I wanted to allow the developer to establish the amount of cars that are allowed to be compared. Also, I wanted to allow the users to compare cars and allow them to share the url of any set of comparisons. So in order to achieve this, it was decided to create the routes for the compare screen dynamically.
 
-So, ¿How do routes vary according to the amount of cars allowed to compare? well, essentially, if we are going to compare 5 cars, then each of the 5 cars has to be referenced in the url. And that's it! That is the magic. Each car is captured from the url, acquired independently and added to the compare table.
+So, ¿How do routes vary according to the amount of cars allowed to compare? well, essentially, if we are going to compare 5 cars, then each of the 5 cars has to be referenced in the url. And that's it! That is the magic. Each car can be referenced by either the id or the slud within the url. Each car is captured from the url, acquired independently from the service and added to the compare table.
 
 The app is limited to compare 2 to 3 cars. However, the app can be set to allow comparisons of any number of cars, provided, of course, your screen is wide enough to allow them to fit comfortably.
 
@@ -159,14 +159,14 @@ If you want to change the settings, just change the values in that file. Do so a
 
 As mentioned before, since each car has a unique code called **slug**, the app uses that attribute as means to determine the image of the car.
 
-First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are **`c`**, which represents the image in high quality, and **`th`**,which is the thumbnail.
+First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are **`.c`**, which represents the image in high quality, and **`.th`**,which is the thumbnail.
 
 For example, the futuristic slick-looking 2015 Mercedes-Benz IAA car, has the appropriate slug **`2015_mercedes-benz_iaa`**, so the images associated to that car are:
 
 - `2015_mercedes-benz_iaa.c.jpg` (**Full size image**)
 - `2015_mercedes-benz_iaa.th.jpg` (**Thumbnail image**)
 
-In a real setting, images would either be stored in a database and accessed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or as part of the filename. It is ideal that the images are stored in full size in every occation, and these would have to be resampled or resized for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache these thumbnails, to avoid resampling the images every time. These compound of image manipulation practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and you may not want to send a large image if the application is going to display a small thumbnail fo the image. Also, large images may stress the client application too much if these images are too big (old mobile phones usually have a hard time downloading and processing large images).
+In a real setting, images would either be stored in a database and accessed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or as part of the filename. It is ideal that the images are stored in full size in every occation, and these would have to be resampled or resized for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache these thumbnails, to avoid resampling the images every time. These compound of image manipulation practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and you may not want to send a large image if the application is going to display a small thumbnail for the image. Also, large images may stress the client application too much if these images are too big (old mobile phones usually have a hard time downloading and processing large images).
 
 ## Tests
 
