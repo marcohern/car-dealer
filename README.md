@@ -96,7 +96,9 @@ It is somewhat clear that it refers to a page where two cars will be compared an
 
 ### How are slugs generated?
 
-In a real setting, the slug for each car, or any entity, for that matter, can be either generated automatically by the server, provided by the client app, or a combination of both. It's similar to a username in that it can be provided by the user, but must be unique, and obviously, url-safe. Those two are really the most important rules.
+In a real setting, the slug for each car, or any entity, for that matter, can be either generated automatically by the server, provided by the client app, or a combination of both. It's similar to a username in that it can be provided by the user and must be unique, but it must also be descriptive, and obviously, url-safe. Those are the 3 most important rules for a slug.
+
+More often than not, slug values are adapted from the name of the entity (assuming the entity has a name). For example: a news paper article called *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`.
 
 Beyond that, it is up to the developer to determine if and how to generate them, or how to allow users to provide them and at the same time, ensure that they are unique per entity.
 
@@ -140,14 +142,14 @@ If you want to change the settings, just change the values in that file. Do so a
 
 As mentioned before, since each car has a unique code called **slug**, the app uses that attribute as means to determine the image of the car.
 
-First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are **`c`**, which represents the image in high quality, and **`th`**,which is the thimbnail.
+First of all, The images are stored in the **`/src/assets/cars`** folder. For each car, two images are available: the image itself and a thumbnail. Each image filename contains the slug of the matching car, save for some charaters at the end of the file name. These are **`c`**, which represents the image in high quality, and **`th`**,which is the thumbnail.
 
 For example, the futuristic slick-looking 2015 Mercedes-Benz IAA car, has the appropriate slug **`2015_mercedes-benz_iaa`**, so the images associated to that car are:
 
 - `2015_mercedes-benz_iaa.c.jpg` (**Full size image**)
 - `2015_mercedes-benz_iaa.th.jpg` (**Thumbnail image**)
 
-In a real setting, images would either be stored in a database and accesed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or part of the filename. It is ideal that the images are stored in full size in every occation, but that it would be resampled or resize for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache those thumbnails, as to not resample them every time. These compound of practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and may stress the client application too much if these images are too big (old mobile phones usually have a hard time processing large images).
+In a real setting, images would either be stored in a database and accessed through the same car slug, or would be stored in specific folders in the server's filesystem, again, using the slug as a reference to the file or as part of the filename. It is ideal that the images are stored in full size in every occation, and these would have to be resampled or resized for use as a single thumbnail or multiple thumbnails depending on the requirements. It is also good practice to save or cache these thumbnails, to avoid resampling the images every time. These compound of image manipulation practices are done usually to increase application performance as well as save bandwith, as images are usually many kilobytes (if not megabytes) in size, and you may not want to send a large image if the application is going to display a small thumbnail fo the image. Also, large images may stress the client application too much if these images are too big (old mobile phones usually have a hard time downloading and processing large images).
 
 ## Tests
 
