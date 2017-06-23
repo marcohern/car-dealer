@@ -1,5 +1,14 @@
 <div class="jumbotron">
-  <h1>¡Bienvenidos a Car Dealer!</h1>
-  <p>Venta de autos tan buenos que hasta pensarias que nuestros autos son falsos. ¡Pues No, fijate! Son de verdad! ¡Deveritas, deveritas!ª</p>
-  <p><a class="btn btn-primary btn-lg" [routerLink]="['/cars']" role="button">Ver Autos</a></p>
+  <h1>¡Bienvenidos<span class="hidden-sm hidden-xs">a Car Dealer</span>!</h1>
+  <div class="media">
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="assets/images/brand.png" alt="Car Dealer" width="128" height="128">
+      </a>
+    </div>
+    <div class="media-body">
+      <p>Venta de autos tan buenos que hasta pensarias que nuestros autos son falsos. ¡Pues No, fijate! Son de verdad! ¡Deveritas, deveritas!ª</p>
+      <p><a class="btn btn-primary btn-lg" [routerLink]="['/cars']" role="button">Ver Autos</a></p>
+    </div>
+  </div>
 </div>
