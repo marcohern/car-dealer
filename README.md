@@ -49,15 +49,57 @@ The car list screen displays cars sorted in ascending order by **model, brand an
 
 Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** cars as well as the **`Bugatti Chiron`**. Also, typing **`20`** will match all car models, due to the year (all models are post year 2000).
 
-## Car slug attribute
+## Car slug field
 
-You may have noticed that cars have a **slug** field. The slug field is intended to be a unique url-safe code that references the car. That is, by reading the slug under certain contexts, you get a since of what the entity is. This is helpfull when you want your users to be able to determine more or less what data is being presented just by reading the url, in case they want to share the url with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages.
+You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. This means that, by reading the slug under certain contexts, you get a since of what the entity is. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, then the code can be rendered within a url. This is helpfull when you want your users to be able to determine more or less what data is being presented just by reading the url, in case they want to share the url with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages.
 
 For example, in the following url
 
 `http://localhost:4200/car/compare/2016_roborace_formula_e/2015_mercedes-benz_iaa`
 
 It is somewhat clear that it refers to a page where two cars will be compared and those cars are the 2016 Roborace Formula E and the 2015 Mercedes-Benz IAA.
+
+### How are slugs generated?
+
+In a real setting, the slug for each car, or any entity, for that matter, can be either generated automatically by the server, provided by the client app, or a combination of both. It's similar to a username in that it can be provided by the user, but must be unique, and obviously, url-safe. Those two are really the most important rules.
+
+Beyond that, it is up to the developer to determine if and how to generate them, or how to allow users to provide them and at the same time, ensure that they are unique per entity.
+
+Note that even though you can generate a unique hash or a guid for a slug if you like (it's quite feasable), doing this misses the point. Remember: you want to be able to tell what the entity is just by reading the slug, and a jumbled mess of letters and numbers does not tell you that that guid or hash is refering to a car.
+
+### Do slugs need context?
+
+Short answer: it is up to you, to add as much context as you want.
+
+Long answer: In this example (CarDealer), the context of each of the slugs for each car requires you to know that these are cars. In other words, if you read a slug without knowing that it is a car, you may not know what it is refering to. It sounds like a car, but it also could be a toy, or a lego set. But this is fine, since we can add more context when we use the slug in a url.
+
+For example, can you guess what this fake url is refering to, just by reading it?
+
+`http://www.carsforsale.fake/car/2014_maserati_model-b` (Fake URL)
+
+Well you may not be an expert in cars, or the internet, and you may not even be a salesman, but just by reading the web address, you can probably tell that navigating to that url will take to the a details page for a **car**, probably for sale. The car is likely a **2014** model, and you may guess that the name of that model is **model-b** and that the brand may well be **maserati**. Or maybe the brand is **model-b** and the model is called **maserati**? That is debateable, but either way, you are in the right direction, and you have not even navigated to that address.
+
+In summary, my slugs do not have enough context to work by themselves, but you can add as much context as you want, if you have the means to. So, like I said, it is up to you.
+
+## Compare Settings
+
+### Dynamic routes
+
+As mentioned above, the compare uses the slug of each vehicle to render the compare url, where each car is referenced within the url, making it more readable and convinient to share with friends. car id's can also be used, but are not favored for readability.
+
+But another interesting aspect of the compare url, or compare route, is the fact that it is dynamicly generated. Historically, Angular recommends to establish routes statically, by typing them into the source code, which is fine for most implementations.
+
+In this case, however, I wanted to allow the developer to establish the amount of cars that are allowed to be compared. Also, I wanted to allow the users to compare cars and allow them to share the url of any set of comparisons. So in order to achieve this, it was decided to create the routes for the compare screen dynamically.
+
+So, ¿How do routes vary according to the amount of cars allowed to compare? well, essentially, if we are going to compare 5 cars, then each of the 5 cars has to be referenced in the url. And that's it! That is the magic. Each car is captured from the url, acquired independently and added to the compare table.
+
+The app is limited to compare 2 to 3 cars. However, the app can be set to allow comparisons of any number of cars, provided, of course, your screen is wide enough to allow them to fit comfortably.
+
+### The compare settings file (config.ts) - EXPERIMENTAL!
+
+**Keep in mind, this is an experiment and is out of the scope of the application requirements.** Inside the source file `src/app/config.ts`, you will find the settings for the maximun and minimum allowed to be compared in a single screen. Changing these settings and refreshing the application should work fine, albeit your screen size may be an issue if it's too narrow, like on a mobile phone for example. Usually 3 cars looks fine on mobile devices, 4 or 5 can work on laptops or widescreen pc's. Anything larger than 5 is probably overkill.
+
+If you want to change the settings, just change the values in that file. Do so at your own peril.
 
 ## Images and Thumbnails
 
