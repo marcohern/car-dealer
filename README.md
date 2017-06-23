@@ -56,14 +56,14 @@ The following list of files are key, you may want to keep track of them:
 
 Each car entity contains the following fields:
 
-- **id**: unique identifier, numeric.
-- **slug** *: url-safe code that contextualizes the car.
+- **id**: unique identifier, primary key, numeric.
+- **slug** *: url-safe code that identifies and contextualizes the car.
 - **brand**: car brand.
 - **year**: year for the model.
 - **model**: name of the model.
 - **price**: sale price.
 
-(*) see [Car slug field](#car_slug_field) section to find out more about the slug field and it's pourpose.
+(*) see [Car slug field](#car-slug-field) section to find out more about the slug field and it's pourpose.
 
 ## Modular design
 
@@ -74,7 +74,7 @@ CarDealer is an Angular application: a root module containing two additional sub
 
 Angular documentation encourages developers to modularize application as much as it is conveniently possible, since it increases performance and improves memory usage by not loading all modules at once. I chose to separate the menu only as an excersise, but since the menu is visible throughout the whole application, leaving it as a component within the root would have been fine.
 
-The car components, on the other hand, were strategically placed into their own module. This is as to not load the cars module unless the user navigates to any of its components. It may seem unnecesarry within this execrise, but in a large application, with many components, modularizing them in terms of entities or functionality is a good idea, since only the modules that the user navigates to will be loaded.
+The car components, on the other hand, were strategically placed into their own module. This is as to not load the cars module unless the user navigates to any of it's components. It may seem unnecesarry within this execrise, but in a large application, with many entities, users, and management protocols, modularizing the application is a good idea, since only the modules that the user navigates to will be loaded.
 
 ## Vehicle Sorting
 
@@ -82,7 +82,7 @@ The car list screen displays cars sorted in ascending order by **model, brand an
 
 ## Vehicle Filtering
 
-Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** cars as well as the **`Bugatti Chiron`**. Also, typing **`20`** will match all car models, due to the year (all models are post year 2000).
+Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** brand cars as well as a **`Bugatti Chiron`** model. Also, typing **`20`** will match all car models, due to the year (all models are post year 2000).
 
 ## Car slug field
 
