@@ -138,20 +138,29 @@ export class CarListComponent implements OnInit {
     let car = this.filteredCars[i];
     let carIndex = this.findCarInCompareList(car);
 
+    //if car found
     if (carIndex >= 0) {
-      //toastr.warning("Se elimina '" + car.year + " " + car.brand + " " + car.model + " de la cola.","Comparar");
-      this.filteredCars[carIndex].compare = false;
+      //remove it from the queue
+      console.log("removing",car.slug);
+      this.filteredCars[i].compare = false;
       this.compare.splice(carIndex,1);
+    //car not found
     } else {
-      if (this.compare.length>=config.compare.max) {
+      //add it to the queue
+      console.log("adding",car.slug);
+
+      //if we still have some space
+      if (this.compare.length < config.compare.max) {
+        //add the selected car
+        this.filteredCars[i].compare = true;
+        this.compare.push(this.filteredCars[i]);
+      } else {
+        //error: too many cars
         toastr.error("Demasiados autos para comparar.","Comparar");
         this.compareError = true;
-        return;
       }
-      this.filteredCars[i].compare = true;
-      //toastr.warning("Se añade '" + car.year + " " + car.brand + " " + car.model + " a la cola.","Comparar");
-      this.compare.push(this.filteredCars[i]);
     }
+    console.log(this.compare);
     if (this.compare.length < config.compare.min) {
       this.compareInvalid = true;
     } else {
