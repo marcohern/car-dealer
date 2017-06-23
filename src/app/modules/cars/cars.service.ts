@@ -40,13 +40,13 @@ export class CarsService {
       .map((r:Response) => {
         let cars:Car[] = r.json();
         let nid:number = Number(id);
-        if (id != NaN) return <Car>r.json()[nid-1]
-        else {
+        if (isNaN(nid)) {
           for (let c of cars) {
-            if (c.slug == ''+id) return c;
+            if (c.slug == id) return c;
           }
           return null;
         }
-      });
+        else return cars[nid-1];
+    });
   }
 }
