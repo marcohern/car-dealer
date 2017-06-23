@@ -41,15 +41,18 @@ That should download all dependencies for the source code.
 
 Run `ng serve` to run the dev server. To run the app, just navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
-## Key files
+## Key files and folders
 
 The following list of files are key, you may want to keep track of them:
 
+- `src/app` Application source code root
+- `src/app/modules` Application submodules
 - `src/app/config.ts` Compare settings
 - `src/app/toastr.ts` Toastr settings
 - `src/assets/jsons/car-list.json` List of available cars.
+- `src/assets/cars` Car images
 
-### Car structure
+## Car structure
 
 Each car entity contains the following fields:
 
@@ -61,6 +64,17 @@ Each car entity contains the following fields:
 - **price**: sale price.
 
 (*) see [Car slug field](#car_slug_field) section to find out more about the slug field and it's pourpose.
+
+## Modular design
+
+CarDealer is an Angular application: a root module containing two additional submodules. The source code for the submodules is inside the `src/app/modules` folder, and they are:
+
+- `menu`: The top menu bar.
+- `cars`: Cars module, which contains query, list and detail components for cars.
+
+Angular documentation encourages developers to modularize application as much as it is conveniently possible, since it increases performance and improves memory usage by not loading all modules at once. I chose to separate the menu only as an excersise, but since the menu is visible throughout the whole application, leaving it as a component within the root would have been fine.
+
+The car components, on the other hand, were strategically placed into their own module. This is as to not load the cars module unless the user navigates to any of its components. It may seem unnecesarry within this execrise, but in a large application, with many components, modularizing them in terms of entities or functionality is a good idea, since only the modules that the user navigates to will be loaded.
 
 ## Vehicle Sorting
 
