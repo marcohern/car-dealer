@@ -86,9 +86,9 @@ Vehicles are filtered by model, brand and year. Any part of the query string tha
 
 ## Car slug field
 
-You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. This means that, by reading the slug under certain contexts, you get a since of what the entity is. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, then the code can be rendered within a url. This is helpfull when you want your users to be able to determine more or less what data is being presented just by reading the url, in case they want to share the url with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages.
+You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. This means that, by reading the slug under certain contexts, you get a since of what the entity is. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, this *code* can be rendered within a url. This is helpfull when you want your users to be able to determine more or less what data will be presented once we navigate to the address just by reading it, and also if they want to share the address with a friend. It is also usefull for the images, which is something I am taking advantage of in the app. See the [Images and Thumbnail](#images-and-thumbnails) section for more details.
 
-For example, in the following url
+I find implementing slug attribute on a variety of entities to be a very usefull practice with many advantages. For example, in the following url
 
 `http://localhost:4200/car/compare/2016_roborace_formula_e/2015_mercedes-benz_iaa`
 
