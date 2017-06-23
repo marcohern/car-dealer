@@ -140,7 +140,7 @@ I find implementing slug attribute on a variety of entities to be a very usefull
 
 ### How are slugs generated?
 
-In a real setting, the slug for each car, or any entity, for that matter, is usually provided by the user, weather it adapts attributes of the entity to generate it or simply provided by the user. Similar to providing a username, the app makes sure that the slug is unique, but it must also be url-safe, and as descriptive as possible.
+In a real setting, the slug for each car, or any entity, for that matter, is usually provided by the user, weather it adapts attributes of the entity to generate it, or simply provided by the user in a text field, similar to providing a username. The app makes sure that the slug is unique, but it must also be url-safe, and as descriptive as possible.
 
 More often than not, slug values are adapted from the name or title of the entity (assuming the entity has a name or title). For example: a news paper article titled *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`. Another example: in a celebrity gossip website, the slug used for the online profile of famous hollywood celebrity *Angelina Jolie*, may well be `angelina-jolie`. You can probably see a pattern by now.
 
