@@ -21,24 +21,23 @@ declare var $ :any;
 export class CarCompareComponent implements OnInit {
 
   /**
-   * Car being displayed
+   * Car that will be displayed in
+   * the details dialog.
    */
   private modalCar:Car = null;
 
-  private carError:boolean = false;
 
   /**
-   * Comparison table. Stores all car attributes and displayes them accordingly.
+   * List of cars to be compared
    */
-  private comparisons = {
-    cars:[],
-    thumb:[],
-    image:[],
-    brand:[],
-    year:[],
-    model:[],
-    price:[]
-  };
+  private cars:Car[] = [];
+
+  /**
+   * true if an error has occured
+   * while collecting all the cars
+   * to be compared
+   */
+  private carError:boolean = false;
 
   /**
    * Constructor
@@ -67,13 +66,7 @@ export class CarCompareComponent implements OnInit {
           toastr.error("Car '"+id+"' does not exist.","Car Not Found");
           return;
         }
-        this.comparisons.cars.push(car);
-        this.comparisons.thumb.push('assets/cars/' + car.slug + '.th.jpg');
-        this.comparisons.image.push('assets/cars/' + car.slug + '.c.jpg');
-        this.comparisons.brand.push(car.brand);
-        this.comparisons.model.push(car.model);
-        this.comparisons.year.push(car.year);
-        this.comparisons.price.push(car.price);
+        this.cars.push(car);
       });
     }
   }
@@ -83,7 +76,7 @@ export class CarCompareComponent implements OnInit {
    * @param i Car index in the comparisons table
    */
   openDialog(i) {
-    this.modalCar = this.comparisons.cars[i];
+    this.modalCar = this.cars[i];
     $('#car-detail').modal('show');
   }
 

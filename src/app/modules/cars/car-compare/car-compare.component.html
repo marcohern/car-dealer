@@ -7,35 +7,35 @@
   <thead>
     <tr>
       <th>&nbsp;</th>
-      <th *ngFor="let brand of comparisons.brand;let i = index;" class="header">{{i+1}}</th>
+      <th *ngFor="let car of cars;let i = index;" class="header">{{i+1}}</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>&nbsp;</th>
-      <td *ngFor="let im of comparisons.thumb;let i = index">
+      <td *ngFor="let car of cars;let i = index">
         <div class="col-xs-12">
           <a (click)="openDialog(i)">
-            <img class="img-responsive" src="{{im}}" alt="No Car" />
+            <img class="img-responsive" src="assets/cars/{{car.slug}}.th.jpg" alt="No Car" />
           </a>
         </div>
       </td>
     </tr>
     <tr>
       <th>Brand</th>
-      <td *ngFor="let brand of comparisons.brand">{{brand}}</td>
+      <td *ngFor="let car of cars">{{car.brand}}</td>
     </tr>
     <tr>
       <th>Year</th>
-      <td *ngFor="let year of comparisons.year">{{year}}</td>
+      <td *ngFor="let car of cars">{{car.year}}</td>
     </tr>
     <tr>
       <th>Model</th>
-      <td *ngFor="let model of comparisons.model">{{model}}</td>
+      <td *ngFor="let car of cars">{{car.model}}</td>
     </tr>
     <tr>
       <th>Price</th>
-      <td *ngFor="let price of comparisons.price"><span class="price">$ {{price | number:'1.2-2' }}</span></td>
+      <td *ngFor="let car of cars"><span class="price">$ {{car.price | number:'1.2-2' }}</span></td>
     </tr>
   </tbody>
 </table>
