@@ -33,9 +33,10 @@ You may use GitHub Desktop or any other git client that you prefer.
 
 Next you must download dependencies by running `npm install` from within the root folder of CarDealer application:
 
-`.../> cd car-dealer`
-
-`.../car-dealer> npm install`
+```
+path> cd car-dealer
+path/car-dealer> npm install
+```
 
 That should download all dependencies for the source code.
 
@@ -102,6 +103,31 @@ The car list screen displays cars sorted in ascending order by **model, brand an
 
 Vehicles are filtered by model, brand and year. Any part of the query string that matches any of those attributes by characters is considered a match. For example, typing **`ch`** into the query box will match two **`Chevrolet`** brand cars as well as a **`Bugatti Chiron`** model. Also, typing **`20`** will match all car models, due to the year (all models are post year 2000).
 
+
+## The compare button
+
+Once you enter the car list page, you immediately notice the compare button. It is disabled because you may only compare once you have selected at least 2 cars before it becomes enabled.
+
+### Selecting cars
+
+You can select cars by either hovering your mouse over the thumbnail, at that point two icons appear:
+
+1. **Equializer Icon** (Add to Compare queue)
+2. **Magnifying Glass Icon** (View Car Details)
+
+You may pick the car for comparison by clicking on the Equalizer icon. You may also select a car for comparison by clicking on the plus button below the thumbnail. As soon as you do, the item becomes blue-ish and the blue plus button becomes a yellow minus button. Clicking on this button will remove the car from the compare queue.
+
+You can quicly check what cars are in the queue near the top compare button, at the top of the page.
+
+### Placement
+
+For optimal comfort of the user, the Compare button was placed in several places:
+
+- The green button at the top of the cars list page
+- Beneath each of the cars
+
+The green Compare button at the top of the page is there as part of the compare breadcrums bar, which list each of the cars that will be compared once the compare button is clicked. As far as placing a single button available for a compound of items, the top of the page is as good as any. However, I realized that forcing the user to scroll down, select cars, and then scroll back up in order to access the compare button may be stressfull. So to fix this, the Compare button was also added beneath each of the cars (its the green one). This allows the user to jump to the compare page immediately after selecting the last car.
+
 ## Car slug field
 
 You may have noticed that cars have a **slug** field. The slug value is intended to be a unique url-safe code that references the car. The idea is that, by reading the slug under certain contexts, you get a since of what the entity is, or what content it has, without having additional information or looking at a picture. Think of it as a descriptive username for the car, a **carname**, if you will. Since it's url-safe, this *code* can be rendered within a url. This is helpfull when you want your users to be able to, just by reading the address, determine more or less what data will be presented before hand. Also, if he or she wants to share the address with a friend, by copying and pasting it in a chatroom, then the friend can read the address and also infer what the content is about. It is also very usefull for the images, which have the slug as part of their filename. See the [Images and Thumbnail](#images-and-thumbnails) section for more details.
@@ -114,9 +140,11 @@ I find implementing slug attribute on a variety of entities to be a very usefull
 
 ### How are slugs generated?
 
-In a real setting, the slug for each car, or any entity, for that matter, is usually provided by the user, weather it adapts attributes of the entity to generate it or simply prided by the user, like a username: it is provided by the user, the app makes sure that it is unique, but the slug must also be descriptive, and obviously, url-safe.
+In a real setting, the slug for each car, or any entity, for that matter, is usually provided by the user, weather it adapts attributes of the entity to generate it or simply provided by the user. Similar to providing a username, the app makes sure that the slug is unique, but it must also be url-safe, and as descriptive as possible.
 
 More often than not, slug values are adapted from the name or title of the entity (assuming the entity has a name or title). For example: a news paper article titled *It's rainign cats and dogs in 5th avenue* may be assigned a slug similar to `its-raining-cats-and-dogs-in-5th-avenue`. Another example: in a celebrity gossip website, the slug used for the online profile of famous hollywood celebrity *Angelina Jolie*, may well be `angelina-jolie`. You can probably see a pattern by now.
+
+CarDealer is a tech demo, so all the slugs are embedded into the `car-list.json` file. However, you can tell that the slug is a mix of different field values (`<year>_<brand>_<model>`).
 
 Beyond that, it is up to the developer to determine if and how to generate them, or how to allow users to provide them and at the same time, ensure that they are unique per entity.
 
