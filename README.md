@@ -41,6 +41,27 @@ That should download all dependencies for the source code.
 
 Run `ng serve` to run the dev server. To run the app, just navigate to `http://localhost:4200/` using your favorite browser. The app will automatically reload if you change any of the source files.
 
+## Key files
+
+The following list of files are key, you may want to keep track of them:
+
+- `src/app/config.ts` Compare settings
+- `src/app/toastr.ts` Toastr settings
+- `src/assets/jsons/car-list.json` List of available cars.
+
+### Car structure
+
+Each car entity contains the following fields:
+
+- **id**: unique identifier, numeric.
+- **slug** *: url-safe code that contextualizes the car.
+- **brand**: car brand.
+- **year**: year for the model.
+- **model**: name of the model.
+- **price**: sale price.
+
+(*) see [Car slug field](#car_slug_field) section to find out more about the slug field and it's pourpose.
+
 ## Vehicle Sorting
 
 The car list screen displays cars sorted in ascending order by **model, brand and year**, in that order. However, due to popular convention, the composite reference of each vehicle is **Year Brand Model**, so it may appear that the cars are not sorted propperly, but they are. Keep that in mind as to not be confused.
@@ -65,7 +86,7 @@ In a real setting, the slug for each car, or any entity, for that matter, can be
 
 Beyond that, it is up to the developer to determine if and how to generate them, or how to allow users to provide them and at the same time, ensure that they are unique per entity.
 
-Note that even though you can generate a unique hash or a guid for a slug if you like (it's quite feasable), doing this misses the point. Remember: you want to be able to tell what the entity is just by reading the slug, and a jumbled mess of letters and numbers does not tell you that that guid or hash is refering to a car.
+Note that even though you can generate a unique hash or a guid for a slug if you like (it's quite feasable), doing this misses the point. Remember: you want to be able to tell what the entity is just by reading the slug, and a jumbled mess of letters and numbers does not tell you that that string or code is refering to a car.
 
 ### Do slugs need context?
 
@@ -87,7 +108,7 @@ In summary, my slugs do not have enough context to work by themselves, but you c
 
 As mentioned above, the compare uses the slug of each vehicle to render the compare url, where each car is referenced within the url, making it more readable and convinient to share with friends. car id's can also be used, but are not favored for readability.
 
-But another interesting aspect of the compare url, or compare route, is the fact that it is dynamicly generated. Historically, Angular recommends to establish routes statically, by typing them into the source code, which is fine for most implementations.
+But another interesting aspect of the compare url, or compare route, is the fact that it is not a single route, but rather multiple dynamically generated routes. Historically, Angular recommends to establish routes statically, by typing them into the source code, which is fine for most implementations.
 
 In this case, however, I wanted to allow the developer to establish the amount of cars that are allowed to be compared. Also, I wanted to allow the users to compare cars and allow them to share the url of any set of comparisons. So in order to achieve this, it was decided to create the routes for the compare screen dynamically.
 
